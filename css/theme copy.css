@@ -1,0 +1,283 @@
+
+:root {
+  /* Backgrounds */
+  --bg-page: #0b1220;
+  --bg-section: #0f172a;
+  --bg-card: #252b36;
+
+  /* Text */
+  --text-primary: #e6eaf0;
+  --text-secondary: #a0aec0;
+  --text-muted: #7a8699;
+
+  /* Accent (professional blue only) */
+  --accent-primary: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-soft: rgba(37, 99, 235, 0.15);
+
+  /* Borders */
+  --border-subtle: #24304a;
+}
+
+/* Light mode */
+:root[data-theme="light"] {
+  /* Backgrounds */
+  --bg-page: #f8fafc;        /* clean light gray */
+  --bg-section: #ffffff;    /* pure white */
+  --bg-card: #f1f5f9;       /* subtle contrast */
+
+  /* Text */
+  --text-primary: #0f172a;  /* deep slate */
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  /* Accent (same blue, adjusted perception) */
+  --accent-primary: #2563eb;
+  --accent-hover: #1e40af;
+  --accent-soft: rgba(37, 99, 235, 0.12);
+
+  /* Borders */
+  --border-subtle: #e2e8f0;
+}
+
+/* Global */
+body {
+  background-color: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+}
+
+section, .container, .container-fluid {
+  background-color: transparent;
+}
+
+/* Text overrides */
+.text-white { color: var(--text-primary) !important; }
+.text-muted { color: var(--text-muted) !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+
+/* Background overrides */
+.bg-dark,
+.bg-secondary {
+  background-color: var(--bg-section) !important;
+}
+
+/* Links */
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: var(--accent-hover);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--accent-primary) !important;
+  border-color: var(--accent-primary) !important;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+}
+
+/* Bootstrap hover/focus kill (purple fix) */
+.btn:focus,
+.btn:active,
+.btn-primary:focus,
+.btn-primary:active,
+a:focus {
+  box-shadow: none !important;
+}
+
+/* Numbers / counters / highlights */
+.counter,
+.number,
+.stat,
+.badge,
+.badge-primary {
+  color: var(--accent-primary) !important;
+  background-color: transparent !important;
+  font-weight: 600;
+}
+
+/* Badges */
+.badge-primary {
+  border: 1px solid var(--border-subtle);
+  padding: 0.35em 0.6em;
+}
+
+/* Cards */
+.card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-subtle);
+}
+
+/* Remove any leftover purple explicitly */
+*[style*="purple"],
+*[style*="#6610f2"] {
+  color: var(--accent-primary) !important;
+}
+.services-1:hover {
+    background-color: var(--bg-card);
+    border-color: var(--accent-primary);
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+    background-color: var(--accent-hover) !important;
+    border-color: var(--accent-hover) !important;
+    color: #ffffff !important;
+}
+
+
+.hero-image {
+    background-image: url("../images/ayushiharlalka.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+@media (max-width: 991.98px) {
+    .hero-image {
+        background-image: none !important;
+        min-height: auto;
+    }
+}
+
+
+.themeToggle::before {
+  content: "◐"; /* dark mode icon */
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+/* Light mode icon */
+:root[data-theme="light"] .themeToggle::before {
+  content: "◑";
+}
+ /*====================================== //--//--> ABOUT ======================================*/
+      .about-mf .box-shadow-full {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+
+      .about-mf .about-img {
+        margin-bottom: 2rem;
+      }
+
+      .about-mf .about-img img {
+        margin-left: 10px;
+      }
+
+      .skill-mf .progress {
+        /* background-color: #cde1f8; */
+        margin: .5rem 0 1.2rem 0;
+        border-radius: 0;
+        height: .7rem;
+      }
+
+      .skill-mf .progress .progress-bar {
+        height: .7rem;
+        background-color: #b08df0;
+      }
+
+      /* Animation styles */
+      #typing-animation {
+        position: relative;
+        font-size: 30px;
+        font-weight: bold;
+        color: var(--text-primary);
+        overflow: hidden;
+        white-space: nowrap;
+        animation: typing 3s steps(30, end) infinite;
+      }
+
+      #typing-animation:before {
+        content: "";
+        /* position: absolute; */
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: #ccc;
+        animation: typing-cursor 0.5s ease-in-out infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes typing-cursor {
+        from {
+          width: 5px;
+        }
+
+        to {
+          width: 0;
+        }
+      }
+
+      /* project image zoom effect */
+      .zoom-effect {
+        overflow: hidden;
+        transition: transform 0.3s ease-out;
+      }
+
+      .zoom-effect:hover {
+        transform: scale(1.1);
+      }
+
+      .project-diagram {
+        background-size: contain !important;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 320px;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .project-diagram {
+          height: 220px;
+        }
+      }
+      /* Make button the positioning context */
+#themeToggle {
+  position: relative;
+}
+
+/* Tooltip */
+#themeToggle::after {
+  content: "Switch theme";
+  position: absolute;
+  bottom: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  border: 1px solid var(--border-subtle);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 1000;
+}
+
+/* Show tooltip on hover & keyboard focus */
+#themeToggle:hover::after,
+#themeToggle:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(2px);
+}
