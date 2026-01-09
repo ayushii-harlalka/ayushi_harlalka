@@ -1,88 +1,133 @@
-
+/* =========================================================
+   THEME VARIABLES
+   ========================================================= */
+/* ---------- Dark mode (Numerology Aligned) ---------- */
 :root {
   /* Backgrounds */
-  --bg-page: #0b1220;
-  --bg-section: #0f172a;
-  --bg-card: #252b36;
+  --bg-page: #0b1220;        /* Page background */
+  --bg-section: #282f3d;     /* Section separation (IMPORTANT CHANGE) */
+  --bg-card: #2c3652;        /* Card lift (IMPORTANT CHANGE) */
 
   /* Text */
   --text-primary: #e6eaf0;
-  --text-secondary: #a0aec0;
-  --text-muted: #7a8699;
+  --text-secondary: #c2cbe0; /* Increased contrast */
+  --text-muted: #9aa3b2;
 
-  /* Accent (professional blue only) */
+  /* Accent */
   --accent-primary: #2563eb;
   --accent-hover: #1d4ed8;
-  --accent-soft: rgba(37, 99, 235, 0.15);
+  --accent-soft: rgba(111, 143, 114, 0.15);
+
+  /* CTA */
+  --accent-cta: #c25a3a;
 
   /* Borders */
-  --border-subtle: #24304a;
-}
+  --border-subtle: #3a4663;
 
-/* Light mode */
+  --bg-hero-dark: #0b1220;
+  --bg-highlight-dark: #111a30;
+}
 :root[data-theme="light"] {
-  /* Backgrounds */
-  --bg-page: #f8fafc;        /* clean light gray */
-  --bg-section: #ffffff;    /* pure white */
-  --bg-card: #f1f5f9;       /* subtle contrast */
+
+  --bg-page: #f8fafc;
+  --bg-section: #ffffff;
+  --bg-card: #f1f5f9;
+  /* Backgrounds * /
+  --bg-page: #f6efdf;        /* Cleaner, less washed-out beige * /
+  --bg-section: #fbf5ea;
+  --bg-card: #ffffff;       /* Cards must be white (authority) */
 
   /* Text */
-  --text-primary: #0f172a;  /* deep slate */
-  --text-secondary: #334155;
-  --text-muted: #64748b;
+  --text-primary: #1f2a44;
+  --text-secondary: #3f4b63; /* Stronger contrast */
+  --text-muted: #6b7280;
 
-  /* Accent (same blue, adjusted perception) */
-  --accent-primary: #2563eb;
-  --accent-hover: #1e40af;
-  --accent-soft: rgba(37, 99, 235, 0.12);
+  /* Accent */
+--accent-primary: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-soft: rgba(111, 143, 114, 0.12);
+
+  /* CTA */
+  --accent-cta: #c25a3a;
 
   /* Borders */
-  --border-subtle: #e2e8f0;
+  --border-subtle: #d1d9e6;
+  
+--bg-hero-light: #f6efdf;
+--bg-highlight-light: #faf6ee;
 }
 
-/* Global */
+/* Section Emphasis */
+
+
+/* =========================================================
+   GLOBAL BASE STYLES
+   ========================================================= */
+
 body {
   background-color: var(--bg-page) !important;
   color: var(--text-primary) !important;
 }
 
-section, .container, .container-fluid {
+/* Prevent container backgrounds from overriding theme */
+section,
+.container,
+.container-fluid {
   background-color: transparent;
 }
 
-/* Text overrides */
-.text-white { color: var(--text-primary) !important; }
-.text-muted { color: var(--text-muted) !important; }
-.text-secondary { color: var(--text-secondary) !important; }
 
-/* Background overrides */
+/* =========================================================
+   TEXT & TYPOGRAPHY OVERRIDES
+   ========================================================= */
+
+.text-white     { color: var(--text-primary) !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+.text-muted     { color: var(--text-muted) !important; }
+
+
+/* =========================================================
+   BACKGROUND UTILITIES (BOOTSTRAP OVERRIDES)
+   ========================================================= */
+
 .bg-dark,
-.bg-secondary {
+.bg-secondary,
+.ftco-section  {
   background-color: var(--bg-section) !important;
 }
 
-/* Links */
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
 a {
   color: var(--accent-primary);
   text-decoration: none;
 }
+
 a:hover,
 a:focus {
   color: var(--accent-hover);
 }
 
-/* Buttons */
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
 .btn-primary {
   background-color: var(--accent-primary) !important;
   border-color: var(--accent-primary) !important;
 }
+
 .btn-primary:hover,
 .btn-primary:focus {
   background-color: var(--accent-hover) !important;
   border-color: var(--accent-hover) !important;
 }
 
-/* Bootstrap hover/focus kill (purple fix) */
+/* Remove Bootstrap purple focus ring */
 .btn:focus,
 .btn:active,
 .btn-primary:focus,
@@ -91,7 +136,11 @@ a:focus {
   box-shadow: none !important;
 }
 
-/* Numbers / counters / highlights */
+
+/* =========================================================
+   COUNTERS / BADGES / HIGHLIGHTS
+   ========================================================= */
+
 .counter,
 .number,
 .stat,
@@ -102,54 +151,76 @@ a:focus {
   font-weight: 600;
 }
 
-/* Badges */
 .badge-primary {
   border: 1px solid var(--border-subtle);
   padding: 0.35em 0.6em;
 }
 
-/* Cards */
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
 .card {
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border-subtle);
 }
 
-/* Remove any leftover purple explicitly */
+
+/* =========================================================
+   HARD OVERRIDES (REMOVE TEMPLATE PURPLE)
+   ========================================================= */
+
 *[style*="purple"],
 *[style*="#6610f2"] {
   color: var(--accent-primary) !important;
 }
+
+
+/* =========================================================
+   SERVICES / HOVER STATES
+   ========================================================= */
+
 .services-1:hover {
-    background-color: var(--bg-card);
-    border-color: var(--accent-primary);
+  background-color: var(--bg-card);
+  border-color: var(--accent-primary);
 }
 
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
-    background-color: var(--accent-hover) !important;
-    border-color: var(--accent-hover) !important;
-    color: #ffffff !important;
+  background-color: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  color: var(--text-primary) !important;
 }
 
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
 
 .hero-image {
-    background-image: url("../images/ayushiharlalka.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+  background-image: url("../images/ayushiharlalka.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
+/* Remove hero background image on mobile */
 @media (max-width: 991.98px) {
-    .hero-image {
-        background-image: none !important;
-        min-height: auto;
-    }
+  .hero-image {
+    background-image: none !important;
+    min-height: auto;
+  }
 }
 
+
+/* =========================================================
+   THEME TOGGLE ICON (CSS-ONLY)
+   ========================================================= */
 
 .themeToggle::before {
-  content: "◐"; /* dark mode icon */
+  content: "◐"; /* Dark mode icon */
   font-size: 1rem;
   line-height: 1;
   color: var(--text-primary);
@@ -159,103 +230,107 @@ a:focus {
 :root[data-theme="light"] .themeToggle::before {
   content: "◑";
 }
- /*====================================== //--//--> ABOUT ======================================*/
-      .about-mf .box-shadow-full {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-      }
 
-      .about-mf .about-img {
-        margin-bottom: 2rem;
-      }
 
-      .about-mf .about-img img {
-        margin-left: 10px;
-      }
+/* =========================================================
+   ABOUT SECTION (LEGACY TEMPLATE SUPPORT)
+   ========================================================= */
 
-      .skill-mf .progress {
-        /* background-color: #cde1f8; */
-        margin: .5rem 0 1.2rem 0;
-        border-radius: 0;
-        height: .7rem;
-      }
-
-      .skill-mf .progress .progress-bar {
-        height: .7rem;
-        background-color: #b08df0;
-      }
-
-      /* Animation styles */
-      #typing-animation {
-        position: relative;
-        font-size: 30px;
-        font-weight: bold;
-        color: var(--text-primary);
-        overflow: hidden;
-        white-space: nowrap;
-        animation: typing 3s steps(30, end) infinite;
-      }
-
-      #typing-animation:before {
-        content: "";
-        /* position: absolute; */
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background-color: #ccc;
-        animation: typing-cursor 0.5s ease-in-out infinite;
-      }
-
-      @keyframes typing {
-        from {
-          width: 0;
-        }
-
-        to {
-          width: 100%;
-        }
-      }
-
-      @keyframes typing-cursor {
-        from {
-          width: 5px;
-        }
-
-        to {
-          width: 0;
-        }
-      }
-
-      /* project image zoom effect */
-      .zoom-effect {
-        overflow: hidden;
-        transition: transform 0.3s ease-out;
-      }
-
-      .zoom-effect:hover {
-        transform: scale(1.1);
-      }
-
-      .project-diagram {
-        background-size: contain !important;
-        background-repeat: no-repeat;
-        background-position: center;
-        height: 320px;
-        width: 100%;
-      }
-
-      @media (max-width: 768px) {
-        .project-diagram {
-          height: 220px;
-        }
-      }
-      /* Make button the positioning context */
-#themeToggle {
-  position: relative;
+.about-mf .box-shadow-full {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
-/* Tooltip */
+.about-mf .about-img {
+  margin-bottom: 2rem;
+}
+
+.about-mf .about-img img {
+  margin-left: 10px;
+}
+
+
+/* =========================================================
+   SKILLS (PROGRESS BARS)
+   ========================================================= */
+
+.skill-mf .progress {
+  margin: .5rem 0 1.2rem 0;
+  border-radius: 0;
+  height: .7rem;
+}
+
+.skill-mf .progress .progress-bar {
+  height: .7rem;
+  background-color: #b08df0; /* legacy color (can be themed later) */
+}
+
+
+/* =========================================================
+   TYPING ANIMATION (OPTIONAL / LEGACY)
+   ========================================================= */
+
+#typing-animation {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#typing-animation:before {
+  content: "";
+  background-color: #ccc;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes typing-cursor {
+  from { width: 5px; }
+  to   { width: 0; }
+}
+
+
+/* =========================================================
+   PROJECTS
+   ========================================================= */
+
+.zoom-effect {
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+}
+
+.zoom-effect:hover {
+  transform: scale(1.1);
+}
+
+.project-diagram {
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 320px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .project-diagram {
+    height: 220px;
+  }
+}
+
+
+/* =========================================================
+   THEME TOGGLE TOOLTIP
+   ========================================================= */
+
+#themeToggle {
+  position: relative;
+  font-size: 20px;
+}
+
 #themeToggle::after {
   content: "Switch theme";
   position: absolute;
@@ -267,7 +342,6 @@ a:focus {
   font-size: 0.75rem;
   padding: 4px 8px;
   border-radius: 4px;
-  white-space: nowrap;
   border: 1px solid var(--border-subtle);
   opacity: 0;
   pointer-events: none;
@@ -275,9 +349,98 @@ a:focus {
   z-index: 1000;
 }
 
-/* Show tooltip on hover & keyboard focus */
+/* Show tooltip on hover / keyboard focus */
 #themeToggle:hover::after,
 #themeToggle:focus-visible::after {
   opacity: 1;
   transform: translateX(-50%) translateY(2px);
+}
+
+
+/* =========================================================
+   MOBILE ABOUT SECTION ALIGNMENT
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+  /* Center only headings & media */
+  #about-section h1,
+  #about-section h2,
+  #about-section h3,
+  #about-section .title-s,
+  #about-section .about-img,
+  #about-section .counter-wrap,
+  #about-section .btn {
+    text-align: center;
+  }
+
+  #about-section .about-img {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Keep body text readable */
+  #about-section p,
+  #about-section ul,
+  #about-section li {
+    text-align: left;
+  }
+
+  #about-section ul {
+    padding-left: 1.2rem;
+  }
+
+  /* Remove desktop padding */
+  #about-section .pl-lg-5 {
+    padding-left: 0 !important;
+  }
+
+  /* Hide decorative large heading */
+  .big {
+    display: none;
+  }
+}
+.hidden
+{
+  display: none !important;
+}
+
+.hero {
+  background: var(--bg-section);
+}
+.hero {
+  background: var(--bg-hero-dark);
+}
+
+[data-theme="light"] .hero {
+  background: var(--bg-hero-light);
+}
+
+.card, .capability-card, .testimonial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.testimonial-card {
+  padding: 10px;
+  border:none;
+}
+.case-studies {
+  background: var(--bg-highlight-dark);
+}
+
+[data-theme="light"] .case-studies {
+  background: var(--bg-highlight-light);
+}
+.btn-primary {
+  background: var(--accent-cta);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #a94a2f;
+}
+.container{
+
+  padding-bottom: 15px;
 }
